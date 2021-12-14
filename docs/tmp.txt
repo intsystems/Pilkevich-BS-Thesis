@@ -1,0 +1,49 @@
+Поэтому: 
+\begin{gather*}
+  \int_{-w}^w \text{ReLu}(E\mu_{t-1} + y) \cdot \frac{1}{2 w} dy =  
+    \begin{cases} 
+      0, \text{ если } -E\mu_{t-1} > w, \\
+      E\mu_{t-1}, \text{ если } E\mu_{t-1} > w, \\
+      \frac{(E\mu_{t-1} + w)^2}{4 w}, \text{ если } |E\mu_{t-1}| \leq w.
+    \end{cases} \\ 
+  \int_{-w}^w \text{ReLu}(-E\mu_{t-1} + y) \cdot \frac{1}{2 w} dy =  
+    \begin{cases} 
+      -E\mu_{t-1}, \text{ если } -E\mu_{t-1} > w, \\
+      0, \text{ если } E\mu_{t-1} > w, \\
+      \frac{(-E\mu_{t-1} + w)^2}{4 w}, \text{ если } |E\mu_{t-1}| \leq w.
+    \end{cases} 
+\end{gather*}
+
+Отсюда можно получить рекурентное соотношение:
+\begin{gather*}
+  E \mu_{t} - E \mu_{t-1} =  - E\delta_t + 2 E\delta_t \cdot 
+    \begin{cases} 
+      (p-1) \cdot E\mu_{t-1}, \text{ если } -E\mu_{t-1} > w, \\
+      p \cdot E\mu_{t-1}, \text{ если } E\mu_{t-1} > w, \\
+      \frac{1}{4w} \left( 4 p w E\mu_{t-1} + (E \mu_{t-1} - w)^2 \right), \text{ если } |E\mu_{t-1}| \leq w.
+    \end{cases} 
+\end{gather*}
+
+Решением рекурентного соотношения являются:
+\begin{gather*}
+  E \mu_{t} = 
+    \begin{cases} 
+      \left(1 + 2 (p-1) E\delta_t \right)^t \cdot \mu_0 - E\delta_t\sum_{i=0}^{t-1}(1 + 2 (p-1) E\delta_t)^i , \text{ если } -E\mu_{t-1} > w, \\
+      \left( 2 p E\delta_t+ 1\right )^t \cdot \mu_0 + \sum_{i=0}^{t-1}(2 p E\delta_t+1)^i \cdot(1-2p)E\delta_t, \text{ если } E\mu_{t-1} > w, \\
+      ..., \text{ если } |E\mu_{t-1}| \leq w.
+    \end{cases} 
+\end{gather*}
+
+Рассмотрим в каком случае мы не покинем условие $-E \mu_{t-1} >w$. Для этого должно выполняться:
+\begin{gather*}
+  E \mu_{t} - E \mu_{t-1} = - E\delta_t + 2 E\delta_t \cdot (p-1) E\mu_{t-1} < 0 \Rightarrow  \\
+  E\mu_{t-1} < \frac{1}{2(p-1)}.
+\end{gather*}
+
+Аналогично получаем, что для выполнения $E\mu_{t-1} > w$ требуется:
+\begin{gather*}
+  E \mu_{t} - E \mu_{t-1} = -E\delta_t + 2 E\delta_t \cdot p E\mu_{t-1} > 0 \Rightarrow  \\
+  E\mu_{t-1} > \frac{1}{2p}.
+\end{gather*}
+Очевидно, при отсутствии шума, то есть при $p = 1$ условия всегда верны. 
+Поэтому будет наблюдаться монотонное поведения интереса.

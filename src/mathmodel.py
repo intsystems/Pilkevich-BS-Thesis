@@ -3,15 +3,25 @@ import scipy.special as special
 import numpy as np
 
 class BanditNoiseLoopModel:
-
+    """
+    Bandit model with noise
+    """
     @staticmethod
     def interest_init(M):
+        """
+            M: number of bandits
+        """
         assert M >= 0
 
         return sps.uniform(-0.5, 1).rvs(M)
 
     @staticmethod
     def make_response_noise(interest, w, p):
+        """
+            interest:
+            w: noise weight
+            p: prob of spin
+        """
         n = len(interest)
 
         assert n > 0
@@ -31,6 +41,12 @@ class BanditNoiseLoopModel:
 
     @staticmethod
     def get_interest_update(l, M, actions, response, win_streak, lose_streak, b):
+        """
+            l: number of actions
+            M: number of bandits
+            response:
+            b: effect size
+        """
         assert M >= l > 0
 
         bias = sps.uniform(0, 0.01).rvs(l)

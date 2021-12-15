@@ -5,6 +5,9 @@ import pandas as pd
 # TODO must also collect errors
 
 class MultipleResults:
+    """
+        Result maker
+    """
     index_keys = ['round', 'trial']
 
     def __init__(self, model_name, params={}, **initial_state):

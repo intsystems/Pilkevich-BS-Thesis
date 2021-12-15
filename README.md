@@ -14,7 +14,7 @@
 
 ## Демо
 
-[Демонстранионный ноутбук с проведение эксперимента](compare_models.ipynb)
+[Демонстранионный ноутбук с проведение эксперимента](https://github.com/Intelligent-Systems-Phystech/Pilkevich-BS-Thesis/blob/master/notebooks/compare_models.ipynb)
 
 
 ## Как запускать

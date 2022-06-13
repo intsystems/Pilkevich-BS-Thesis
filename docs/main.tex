@@ -1,0 +1,55 @@
+% \documentclass[12pt]{extarticle}
+\documentclass[a4paper, article, 14pt]{extarticle}
+
+% Подключаем главный пакет со всем необходимым
+\usepackage{diplom_style}
+
+\usepackage{amsmath, amsfonts,amssymb,mathrsfs}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{subfig}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{multicol}
+
+\begin{document}
+\input{titlepage}
+
+\newpage
+\tableofcontents
+\pagebreak
+
+\input{00_abstract}
+
+\newpage
+\section{Введение}
+\input{01_introduction}
+
+\newpage
+\section{Постановка задачи}
+\input{02_problem_statement}
+
+\newpage
+\section{Обзор литературы}
+\input{03_related_work}
+
+\newpage
+\section{Адаптер}
+\input{04_adapter}
+
+\newpage
+\section{Вычислительный эксперимент}
+\input{05_experiments}
+
+\newpage
+\section{Заключение}
+\input{06_conclusion}
+
+
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{biblio}
+
+
+\end{document}
